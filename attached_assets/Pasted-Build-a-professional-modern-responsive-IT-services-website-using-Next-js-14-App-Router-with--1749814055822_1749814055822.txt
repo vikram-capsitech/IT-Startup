@@ -1,0 +1,70 @@
+Build a professional, modern, responsive IT services website using **Next.js 14 (App Router)** with **TypeScript**. The website is for an IT startup called **Osperra Technology**.
+
+### Requirements:
+
+🔹 Tech Stack:
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS (with a global theme file)
+- Framer Motion (for animations)
+- Heroicons or Lucide Icons for visuals
+
+---
+
+### Global Theming:
+- Create a `theme.ts` file or use `tailwind.config.js` with CSS variables for **primary, secondary, background, accent**, and **text** colors. Make sure the color scheme is professional (tech-oriented), e.g., shades of dark blue, slate, or gradient overlays with neon/tech vibes.
+- All sections should use global classes for color references.
+
+---
+
+### Pages / Sections:
+1. **Header / Navbar**
+   - Company logo and nav links (Home, Services, Projects, Team, Clients, Contact)
+   - Sticky navbar with hover animation
+   - Mobile responsive with hamburger menu
+
+2. **Hero Section**
+   - Catchy headline: "Empowering Businesses Through Innovative IT Solutions"
+   - Subheadline: “We build, scale, and future-proof your digital presence.”
+   - Call-to-Action button ("Get Started")
+   - **Animated technology-themed background** (e.g., SVG particles or gradient mesh)
+   - Use Framer Motion for staggered fade-in animations
+
+3. **Services**
+   - Cards or grid layout: Web Development, Cloud Consulting, AI Integrations, UI/UX, Support & Maintenance
+   - Hover animations with motion effects
+   - Icons for each service
+
+4. **Projects / Case Studies**
+   - Showcase 3-4 recent projects with image, name, stack used, and result
+   - Use Framer Motion on scroll to animate each project card
+   - Optional lightbox for project previews
+
+5. **Clients**
+   - Display trusted clients logos (placeholder)
+   - Add a simple carousel or grid format
+
+6. **Team**
+   - Cards for 3–6 team members with image, name, role, and LinkedIn icon
+   - Hover effects for contact reveal
+   - Animate in with slide-in or fade
+
+7. **Contact / Call to Action**
+   - Simple contact form (name, email, message)
+   - Use tailwind forms and motion for field focus animations
+   - Add location/map if needed
+
+8. **Footer**
+   - Branding, social media icons, quick links
+   - Copyright
+
+---
+
+### Additional:
+- Use **motion.div** from Framer Motion across sections for smoother transitions.
+- Integrate **SEO meta tags** in head.
+- Include `layout.tsx` and modular structure with reusable components.
+- Optimize for performance with lazy loading images and dynamic imports.
+- Add `favicon.ico`, title, and metadata config.
+
+Deliver clean, modular code with reusable components for each section.
