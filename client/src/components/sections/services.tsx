@@ -79,51 +79,58 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-background/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-16 bg-background relative overflow-hidden">
+      {/* Background animation */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+      </div>
+      
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Our Services
+          <h2 className="text-3xl md:text-4xl font-black mb-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Our Expertise
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive IT solutions tailored to accelerate your business growth and digital transformation.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Comprehensive IT solutions designed to accelerate your digital transformation
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="service-card glass-card h-full hover-lift">
-                  <CardHeader>
-                    <div className="mb-4">
-                      <Icon className={`w-12 h-12 ${service.color} mb-4`} />
+                <Card className="professional-card service-card h-full group">
+                  <CardHeader className="pb-4">
+                    <div className="mb-3">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <Icon className={`w-7 h-7 ${service.color}`} />
+                      </div>
                     </div>
-                    <CardTitle className="text-2xl font-semibold text-foreground">
+                    <CardTitle className="text-xl font-bold text-foreground mb-2">
                       {service.title}
                     </CardTitle>
-                    <CardDescription className="text-muted-foreground">
+                    <CardDescription className="text-muted-foreground text-sm leading-relaxed">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <ul className="text-sm text-muted-foreground space-y-2">
+                  <CardContent className="pt-0">
+                    <ul className="text-xs text-muted-foreground space-y-1.5">
                       {service.features.map((feature) => (
                         <li key={feature} className="flex items-center">
-                          <span className="mr-2">•</span>
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0"></div>
                           {feature}
                         </li>
                       ))}

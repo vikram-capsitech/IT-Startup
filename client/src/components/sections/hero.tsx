@@ -26,19 +26,49 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center gradient-mesh tech-grid overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center hero-gradient tech-grid overflow-hidden">
+      {/* Advanced floating elements */}
+      <div className="floating-elements">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="floating-element"
+            style={{
+              width: `${Math.random() * 100 + 50}px`,
+              height: `${Math.random() * 100 + 50}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -100, 0],
+              x: [0, 50, 0],
+              rotate: [0, 360],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 2,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Animated particles background */}
       <div className="absolute inset-0 overflow-hidden">
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className={`absolute w-${particle.size} h-${particle.size} ${particle.color} rounded-full opacity-60`}
+            className={`absolute w-${particle.size} h-${particle.size} ${particle.color} rounded-full`}
             style={{ left: particle.x, top: particle.y }}
             animate={{
-              y: [0, -20, 0],
+              y: [0, -30, 0],
+              opacity: [0.3, 0.8, 0.3],
+              scale: [1, 1.2, 1],
             }}
             transition={{
-              duration: 6,
+              duration: 8,
               repeat: Infinity,
               ease: "easeInOut",
               delay: particle.delay,
@@ -54,16 +84,16 @@ export default function Hero() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
-              Empowering Businesses Through{" "}
+            <span className="block bg-gradient-to-r from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
+              Empowering Businesses
             </span>
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Innovative IT Solutions
+            <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              Through Innovation
             </span>
           </motion.h1>
           
@@ -84,16 +114,16 @@ export default function Hero() {
           >
             <Button
               onClick={handleGetStarted}
-              className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 animate-glow"
+              className="bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-primary-foreground px-10 py-5 text-xl font-bold transition-all duration-500 transform hover:scale-105 shadow-2xl shadow-primary/25"
             >
-              Get Started
+              Start Your Project
             </Button>
             <Button
               variant="outline"
               onClick={handleViewWork}
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300"
+              className="border-2 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary px-10 py-5 text-xl font-bold transition-all duration-500 backdrop-blur-sm"
             >
-              View Our Work
+              View Portfolio
             </Button>
           </motion.div>
         </motion.div>
